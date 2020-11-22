@@ -1,8 +1,8 @@
 const themeConfig = require('./config/themeConfig');
-const configureWebpack = require('./config/configureWebpack');
-const chainWebpack = require('./config/chainWebpack');
+const { configureWebpack, chainWebpack } = require('./config/webpack');
 const markdown = require('./config/markdown');
 const head = require('./config/head');
+const plugins = require('./config/plugins');
 
 module.exports = {
   title: 'Hello VuePress',
@@ -14,6 +14,7 @@ module.exports = {
   },
   theme: 'reco',
   //导入其他配置
+  plugins,
   head,
   markdown,
   themeConfig,
