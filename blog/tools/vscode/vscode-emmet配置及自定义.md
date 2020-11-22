@@ -2,7 +2,7 @@
 title: vscode emmet配置及自定义
 date: 2019-07-28 15:09:46
 categories:
-  - vscode
+  - tools
 tags:
   - emmet
   - vscode

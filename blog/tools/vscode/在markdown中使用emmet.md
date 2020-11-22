@@ -3,7 +3,7 @@ title: markdown中使用emmet的配置
 date: 2020-11-01 22:14:06
 editLink: true
 categories:
-  - vscode
+  - tools
 tags:
   - vscode
   - markdown

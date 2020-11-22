@@ -2,7 +2,7 @@
 title: 为Git配置SSH的几种情况
 date: 2019-07-24 22:49:09
 categories:
-  - git
+  - tools
 tags:
   - git
 ---
@@ -63,7 +63,7 @@ tags:
 
 在{USER_HOME}/.ssh/目录下，新建一个 config 文件，在文件中添加如下内容：
 
-```config
+```yaml
 # For me
 Host github.com
   HostName github.com

@@ -2,7 +2,6 @@
 title: JS基础 Date对象
 tags:
   - JavaScript
-  - Data
 categories:
   - JavaScript
 date: 2019-11-02 21:05:10

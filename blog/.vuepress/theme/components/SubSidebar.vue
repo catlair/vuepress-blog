@@ -12,7 +12,7 @@ export default {
       const active = isActive(this.$route, this.$page.path + '#' + header.slug)
       if (active) {
         setTimeout(() => {
-          document.querySelector(`.reco-${header.slug}`).scrollIntoView()
+          document.querySelector(`.reco-${header.slug}`)?.scrollIntoView()
         }, 300)
       }
       return active
