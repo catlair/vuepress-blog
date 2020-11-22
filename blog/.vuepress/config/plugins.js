@@ -1,1 +1,4 @@
-module.exports = [['vuepress-plugin-auto-sidebar', {}]];
+module.exports = [
+  ['vuepress-plugin-auto-sidebar', {}],
+  ['@vuepress-reco/comments', false],
+];
