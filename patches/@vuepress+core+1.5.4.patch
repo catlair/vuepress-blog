@@ -7,7 +7,7 @@ index 351c008..d39f0b2 100644
      <title>{{ title }}</title>
      <meta name="generator" content="VuePress {{ version }}">
 +    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.runtime.min.js"></script>
-+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.3.4/dist/vue-router.min.js"></script>
++    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.4.5/dist/vue-router.min.js"></script>
      {{{ userHeadTags }}}
      {{{ pageMeta }}}
      {{{ renderResourceHints() }}}
