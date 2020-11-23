@@ -255,6 +255,7 @@ function flatten (items, res) {
     &::-webkit-scrollbar
       width: 0
       height: 0
+    scrollbar-width none
   .page-title
     max-width: $contentWidth;
     margin: 0 auto;

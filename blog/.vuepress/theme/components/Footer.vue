@@ -1,6 +1,7 @@
 <template>
   <div class="footer-wrapper">
     <div>
+      <i class="iconfont reco-document"></i>
       <a target="blank" href="https://vuepress.vuejs.org/">{{
         `自豪的使用 vuepress@1.5.1`
       }}</a>
