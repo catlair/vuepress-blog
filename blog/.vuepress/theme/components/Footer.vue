@@ -1,9 +1,9 @@
 <template>
   <div class="footer-wrapper">
     <div>
-      <i class="iconfont reco-document"></i>
+      <i class="iconfont reco-document" style="margin-right: 0.5rem;"></i>
       <a target="blank" href="https://vuepress.vuejs.org/">{{
-        `自豪的使用 vuepress@1.5.1`
+        `generated in vuepress@${vuepressVersion}`
       }}</a>
     </div>
     <span>
@@ -52,10 +52,12 @@
 
 <script>
 import { version } from '../package.json';
+import {version as vuepressVersion} from '@@/node_modules/@vuepress/core/package.json'
 export default {
   data() {
     return {
       version,
+      vuepressVersion
     };
   },
   computed: {

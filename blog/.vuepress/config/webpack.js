@@ -13,7 +13,10 @@ const chainWebpack = (config, isServer) => {
       name: `images/pageimg/[name].[hash:4].[ext]`,
     });
 
-  config.resolve.alias.set('@img', resolve(__dirname, '../public/images'));
+  config.resolve.alias
+    .set('@@', resolve(__dirname, process.cwd()))
+    .set('@', resolve(__dirname, '../../'))
+    .set('@img', resolve(__dirname, '../public/images'));
 };
 
 const configureWebpack = (config, isServer) => {
