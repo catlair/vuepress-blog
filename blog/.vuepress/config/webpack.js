@@ -1,8 +1,26 @@
 const { resolve } = require('path');
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isLocal = !process.env.NODE_BUILD_ENV;
 
 const chainWebpack = (config, isServer) => {
+  const imagesUrlLoader = () => {
+    if (isProduction) {
+      if (isLocal) {
+        return {
+          name: 'images/pageimgs/[name][hash:4].[ext]',
+        };
+      }
+
+      return {
+        publicPath: 'https://cdn.jsdelivr.net/gh/catlair/vuepress-blog/',
+        outputPath: undefined,
+        emitFile: false,
+      };
+    }
+    return {};
+  };
+
   config.module
     .rule('images')
     .test(/\.(png|jpe?g|gif)(\?.*)?$/)
@@ -10,7 +28,8 @@ const chainWebpack = (config, isServer) => {
     .loader('url-loader')
     .options({
       limit: 10000,
-      name: `images/pageimg/[name].[hash:4].[ext]`,
+      name: '[path][name].[ext]',
+      ...imagesUrlLoader(),
     });
 
   config.resolve.alias
@@ -31,6 +50,9 @@ const configureWebpack = (config, isServer) => {
       };
     }
     config.externals = externals;
+    // return {
+    //   externals,
+    // };
   }
 };
 

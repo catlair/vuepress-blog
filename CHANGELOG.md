@@ -38,3 +38,11 @@
 "vue-router": "^3.4.9"
 "vuepress": "^1.7.1",
 ```
+
+## 1.1.1
+
+增加:部分情况使用 cdn
+
+增加: github Action 支持
+
+修复: 致命错误,未设置`postinstall`导致安装依赖后不会自动恢复 node_modules 的更改
