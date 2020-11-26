@@ -40,12 +40,10 @@ const chainWebpack = (config, isServer) => {
 
 const configureWebpack = (config, isServer) => {
   if (isProduction) {
-    let externals = {
-      vue: 'Vue',
-    };
+    let externals = {};
     if (!isServer) {
       externals = {
-        ...externals,
+        vue: 'Vue',
         'vue-router': 'VueRouter',
       };
     }

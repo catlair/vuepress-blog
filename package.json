@@ -8,7 +8,6 @@
     "dev": "vuepress dev blog",
     "devnc": "vuepress dev blog --no-cache",
     "build": "vuepress build blog",
-    "push": "bash ./blog.sh",
     "deploy": "bash ./blog_deploy.sh"
   },
   "author": "",

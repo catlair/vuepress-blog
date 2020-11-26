@@ -1,5 +1,5 @@
-import { addLinkToHead } from './utils'
-export function getOneColor () {
+import { addLinkToHead } from './utils';
+export function getOneColor() {
   const tagColorArr = [
     '#e15b64',
     '#f47e60',
@@ -12,16 +12,25 @@ export function getOneColor () {
     '#f26d6d',
     '#67cc86',
     '#fb9b5f',
-    '#3498db'
-  ]
-  const index = Math.floor(Math.random() * tagColorArr.length)
-  return tagColorArr[index]
+    '#3498db',
+  ];
+  const index = Math.floor(Math.random() * tagColorArr.length);
+  return tagColorArr[index];
 }
 
-export function registerCodeThemeCss (theme = 'tomorrow') {
-  const themeArr = ['tomorrow', 'funky', 'okaidia', 'solarizedlight', 'default']
-  // const href = `//prismjs.com/themes/prism${themeArr.indexOf(theme) > -1 ? `-${theme}` : ''}.css`
-  const href = `/css/prism/prism${themeArr.indexOf(theme) > -1 ? `-${theme}` : ''}.css`
+export function registerCodeThemeCss(theme = 'tomorrow') {
+  const themeArr = [
+    'tomorrow',
+    'funky',
+    'okaidia',
+    'solarizedlight',
+    'coy',
+    'dark',
+    'twlight',
+  ];
+  const href = `//cdn.jsdelivr.net/npm/prismjs/themes/prism${
+    themeArr.indexOf(theme) > -1 ? `-${theme}` : ''
+  }.min.css`;
 
-  addLinkToHead(href)
+  addLinkToHead(href);
 }

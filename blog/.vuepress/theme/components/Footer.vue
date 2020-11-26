@@ -18,7 +18,7 @@
     </span>
     <span>
       <i class="iconfont reco-copyright"></i>
-      <a>
+      <a href="#">
         <span v-if="$themeConfig.author || $site.title">{{
           `Copyright &copy; ${$themeConfig.author || $site.title}`
         }}</span>
@@ -52,12 +52,12 @@
 
 <script>
 import { version } from '../package.json';
-import {version as vuepressVersion} from '@@/node_modules/@vuepress/core/package.json'
+import { version as vuepressVersion } from '@@/node_modules/@vuepress/core/package.json';
 export default {
   data() {
     return {
       version,
-      vuepressVersion
+      vuepressVersion,
     };
   },
   computed: {

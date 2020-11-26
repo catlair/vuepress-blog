@@ -200,12 +200,15 @@ module.exports = {
     ],
   },
   /**
-   * support for
-   * 'default'
-   * 'funky'
-   * 'okaidia'
-   * 'solarizedlight'
-   * 'tomorrow'
+    support for
+    'default'
+    'tomorrow',
+    'funky',
+    'okaidia',
+    'solarizedlight',
+    'coy',
+    'dark',
+    'twlight',
    */
-  codeTheme: 'tomorrow', // default 'tomorrow'
+  codeTheme: 'tomorrow', // 不填是 'tomorrow'
 };
