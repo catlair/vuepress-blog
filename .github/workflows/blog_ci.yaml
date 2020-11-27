@@ -23,6 +23,7 @@ jobs: # 工作流
       - name: run blog_deploy.sh # （同时部署到github或者coding）
         env: # 设置环境变量
           CODING_TOKEN: ${{ secrets.CODING_TOKEN }} # toKen私密变量
+          CATLAIR_GITHUB_TOKEN: ${{ secrets.CATLAIR_GITHUB_TOKEN }}
           NODE_BUILD_ENV: github # 确定一些行为,如是否添加图片cdn
           NODE_ENV: production # 生产模式
         run: yarn deploy

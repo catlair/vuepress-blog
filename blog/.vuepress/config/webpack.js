@@ -8,7 +8,8 @@ const chainWebpack = (config, isServer) => {
     if (isProduction) {
       if (isLocal) {
         return {
-          name: 'images/pageimgs/[name][hash:4].[ext]',
+          // name: 'images/pageimgs/[name][hash:4].[ext]',
+          name: 'images/[path][name].[ext]',
         };
       }
 
@@ -47,10 +48,14 @@ const configureWebpack = (config, isServer) => {
         'vue-router': 'VueRouter',
       };
     }
-    config.externals = externals;
-    // return {
-    //   externals,
-    // };
+    // config.externals = externals;
+    return {
+      externals,
+      // 如果没有部署到github page,不能使用下面的配置
+      output: {
+        publicPath: 'https://cdn.jsdelivr.net/gh/catlair/catlair.github.io/',
+      },
+    };
   }
 };
 

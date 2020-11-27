@@ -4,6 +4,10 @@
 set -e
 
 outputPath=./blog/.vuepress/dist/
+setGitGlobalConfig() {
+  git config --global user.name "catlair"
+  git config --global user.email "catlair@qq.com"
+}
 
 if [ -f "${outputPath}index.html" ];then
   echo "index.html文件存在"
@@ -24,13 +28,27 @@ if [ -z "$CODING_TOKEN" ]; then  # -z 字符串 长度为0则为true；$CODING_T
 else
   msg='来自github actions的自动部署'
   codingUrl=https://${CODING_TOKEN}@e.coding.net/catlair/web/vuepress-page.git
-  git config --global user.name "catlair"
-  git config --global user.email "catlair@qq.com"
+  setGitGlobalConfig
 fi
 git init
 git add -A
 git commit -m "${msg}"
 git push -f $codingUrl master # 推送到coding
+
+# deploy to github
+# echo 'yinx.xyz' > CNAME  # 自定义域名
+rm -f CNAME # 没有自定义域名
+if [ -z "$CATLAIR_GITHUB_TOKEN" ]; then
+  msg='local deploy'
+  githubUrl=git@github.com:catlair/catlair.github.io.git
+else
+  msg='来自github actions的自动部署'
+  githubUrl=https://${CATLAIR_GITHUB_TOKEN}@github.com/catlair/catlair.github.io.git
+  setGitGlobalConfig
+fi
+git add CNAME
+git commit -m "${msg}"
+git push -f $githubUrl master
 
 cd - # 退回开始所在目录
 rm -rf ${outputPath}

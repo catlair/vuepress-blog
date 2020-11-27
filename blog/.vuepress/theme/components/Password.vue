@@ -1,11 +1,15 @@
 <template>
   <div class="password-shadow">
     <ModuleTransition>
-      <h3 v-show="recoShowModule" class="title">{{isPage ? $frontmatter.title : $site.title || $localeConfig.title}}</h3>
+      <h3 v-show="recoShowModule" class="title">
+        {{ isPage ? $frontmatter.title : $site.title || $localeConfig.title }}
+      </h3>
     </ModuleTransition>
 
     <ModuleTransition delay="0.08">
-      <p class="description" v-if="recoShowModule && !isPage">{{$site.description || $localeConfig.description}}</p>
+      <p class="description" v-if="recoShowModule && !isPage">
+        {{ $site.description || $localeConfig.description }}
+      </p>
     </ModuleTransition>
 
     <ModuleTransition delay="0.16">
@@ -15,8 +19,9 @@
           type="password"
           @keyup.enter="inter"
           @focus="inputFocus"
-          @blur="inputBlur">
-        <span>{{warningText}}</span>
+          @blur="inputBlur"
+        />
+        <span>{{ warningText }}</span>
         <button ref="passwordBtn" @click="inter">OK</button>
       </label>
     </ModuleTransition>
@@ -25,14 +30,21 @@
       <div v-show="recoShowModule" class="footer">
         <span>
           <i class="iconfont reco-theme"></i>
-          <a target="blank" href="https://vuepress-theme-reco.recoluan.com">vuePress-theme-reco</a>
+          <a target="blank" href="https://vuepress-theme-reco.recoluan.com"
+            >vuePress-theme-reco</a
+          >
         </span>
         <span>
           <i class="iconfont reco-copyright"></i>
-          <a>
-            <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
+          <a href="#">
+            <span v-if="$themeConfig.author || $site.title">{{
+              $themeConfig.author || $site.title
+            }}</span>
             &nbsp;&nbsp;
-            <span v-if="$themeConfig.startYear && $themeConfig.startYear != year">{{ $themeConfig.startYear }} - </span>
+            <span
+              v-if="$themeConfig.startYear && $themeConfig.startYear != year"
+              >{{ $themeConfig.startYear }} -
+            </span>
             {{ year }}
           </a>
         </span>
@@ -42,9 +54,9 @@
 </template>
 
 <script>
-import md5 from 'md5'
-import ModuleTransition from '@theme/components/ModuleTransition'
-import moduleTransitonMixin from '@theme/mixins/moduleTransiton'
+import md5 from 'md5';
+import ModuleTransition from '@theme/components/ModuleTransition';
+import moduleTransitonMixin from '@theme/mixins/moduleTransiton';
 
 export default {
   mixins: [moduleTransitonMixin],
@@ -52,69 +64,69 @@ export default {
   props: {
     isPage: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   name: 'Password',
-  data () {
+  data() {
     return {
       warningText: 'Konck! Knock!',
-      key: ''
-    }
+      key: '',
+    };
   },
   computed: {
-    year () {
-      return new Date().getFullYear()
-    }
+    year() {
+      return new Date().getFullYear();
+    },
   },
   methods: {
-    inter () {
+    inter() {
       const {
         key,
         isPage,
         isHasPageKey,
         isHasKey,
-        $refs: { passwordBtn }
-      } = this
-      const keyVal = md5(key.trim())
-      const pageKey = `pageKey${window.location.pathname}`
-      const keyName = isPage ? pageKey : 'key'
-      sessionStorage.setItem(keyName, keyVal)
-      const isKeyTrue = isPage ? isHasPageKey() : isHasKey()
+        $refs: { passwordBtn },
+      } = this;
+      const keyVal = md5(key.trim());
+      const pageKey = `pageKey${window.location.pathname}`;
+      const keyName = isPage ? pageKey : 'key';
+      sessionStorage.setItem(keyName, keyVal);
+      const isKeyTrue = isPage ? isHasPageKey() : isHasKey();
       if (!isKeyTrue) {
-        this.warningText = 'Key Error'
-        return
+        this.warningText = 'Key Error';
+        return;
       }
 
-      this.warningText = 'Key Success'
+      this.warningText = 'Key Success';
 
-      const width = document.getElementById('box').style.width
+      const width = document.getElementById('box').style.width;
 
-      passwordBtn.style.width = `${width - 2}px`
-      passwordBtn.style.opacity = 1
+      passwordBtn.style.width = `${width - 2}px`;
+      passwordBtn.style.opacity = 1;
       setTimeout(() => {
-        window.location.reload()
-      }, 800)
+        window.location.reload();
+      }, 800);
     },
-    inputFocus () {
-      this.warningText = 'Input Your Key'
+    inputFocus() {
+      this.warningText = 'Input Your Key';
     },
-    inputBlur () {
-      this.warningText = 'Konck! Knock!'
+    inputBlur() {
+      this.warningText = 'Konck! Knock!';
     },
-    isHasKey () {
-      let { keys } = this.$themeConfig.keyPage
-      keys = keys.map(item => item.toLowerCase())
-      return keys.indexOf(sessionStorage.getItem('key')) > -1
+    isHasKey() {
+      let { keys } = this.$themeConfig.keyPage;
+      keys = keys.map((item) => item.toLowerCase());
+      return keys.indexOf(sessionStorage.getItem('key')) > -1;
     },
-    isHasPageKey () {
-      const pageKeys = this.$frontmatter.keys.map(item => item.toLowerCase())
-      const pageKey = `pageKey${window.location.pathname}`
+    isHasPageKey() {
+      const pageKeys = this.$frontmatter.keys.map((item) => item.toLowerCase());
+      const pageKey = `pageKey${window.location.pathname}`;
 
-      return pageKeys && pageKeys.indexOf(sessionStorage.getItem(pageKey)) > -1
-    }
-  }
-}
+      return pageKeys && pageKeys.indexOf(sessionStorage.getItem(pageKey)) > -1;
+    },
+  },
+};
 </script>
 
 <style lang="stylus" scoped>
