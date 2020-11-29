@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@vuepress/plugin-pwa": "^1.7.1",
     "markdown-it-disable-url-encode": "^1.0.1",
     "node-sass": "^5.0.0",
     "patch-package": "^6.2.2",

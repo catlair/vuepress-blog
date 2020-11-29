@@ -11,6 +11,10 @@ setGitGlobalConfig() {
 
 if [ -f "${outputPath}index.html" ];then
   echo "index.html文件存在"
+  if [ $1 == "-f" ]; then
+    echo "还是得打包"
+    yarn build
+  fi
 else
   echo "index.html文件不存在"
   # 生成静态文件

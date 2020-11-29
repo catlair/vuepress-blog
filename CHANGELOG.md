@@ -1,4 +1,4 @@
-## 1.0
+## 1.0.0
 
 ### 使用固定的版本避免中文路径错误
 
@@ -32,7 +32,7 @@
 
 主题在禁用评论插件后也会试图加载相关组件。`.vuepress/components/`在组件库添加空的`AccessNumber.vue`和`Comments.vue`组件,而不是在主题中更改,方便需要开启评论功能时恢复设置。
 
-## 1.1
+## 1.1.0
 
 ```javascript
 "vue-router": "^3.4.9"
@@ -46,3 +46,7 @@
 增加: github Action 支持
 
 修复: 致命错误,未设置`postinstall`导致安装依赖后不会自动恢复 node_modules 的更改
+
+## 1.1.2
+
+增加: PWA 支持
