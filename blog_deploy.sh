@@ -52,7 +52,7 @@ else
 fi
 # git add CNAME
 git init
-git add -A
+git add -A -f
 git commit -m "${msg}"
 git push -f $githubUrl master
 
