@@ -5,20 +5,20 @@ const isLocal = !process.env.NODE_BUILD_ENV;
 
 const chainWebpack = (config, isServer) => {
   const imagesUrlLoader = () => {
-    if (isProduction) {
-      if (isLocal) {
-        return {
-          // name: 'images/pageimgs/[name][hash:4].[ext]',
-          name: 'images/[path][name].[ext]',
-        };
-      }
+    // if (isProduction) {
+    //   if (isLocal) {
+    //     return {
+    //       // name: 'images/pageimgs/[name][hash:4].[ext]',
+    //       name: 'images/[path][name].[ext]',
+    //     };
+    //   }
 
-      return {
-        publicPath: 'https://cdn.jsdelivr.net/gh/catlair/vuepress-blog/',
-        outputPath: undefined,
-        emitFile: false,
-      };
-    }
+    //   return {
+    //     publicPath: 'https://cdn.jsdelivr.net/gh/catlair/vuepress-blog/',
+    //     outputPath: undefined,
+    //     emitFile: false,
+    //   };
+    // }
     return {};
   };
 
@@ -52,9 +52,9 @@ const configureWebpack = (config, isServer) => {
     return {
       externals,
       // 如果没有部署到github page,不能使用下面的配置
-      output: {
-        publicPath: 'https://cdn.jsdelivr.net/gh/catlair/catlair.github.io/',
-      },
+      // output: {
+      //   publicPath: 'https://cdn.jsdelivr.net/gh/catlair/catlair.github.io/',
+      // },
     };
   }
 };
